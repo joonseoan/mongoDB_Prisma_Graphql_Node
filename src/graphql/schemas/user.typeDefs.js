@@ -12,12 +12,15 @@ export default gql`
 
     input createUserInput{
         name: String!
-        gender: String!
+        email: String!
+        password: String!
+        confirm_password: String!
     }
     
     type User {
         id: ID!
+        email: String!
         name: String!
-        gender: String!
+        token: String!
     }
 `;

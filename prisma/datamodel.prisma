@@ -1,4 +1,7 @@
 type User {
   id: ID! @id
   name: String!
+  email: String! @unique
+  password: String!
+  confirm_password: String!
 }

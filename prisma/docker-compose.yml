@@ -13,7 +13,7 @@ services:
         databases:
           default:
             connector: mongo
-            uri: 'mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@cluster0-7luet.mongodb.net/test?retryWrites=true&w=majority'
+            uri: mongodb+srv://joon:7604632tk@cluster0-7luet.mongodb.net/test?retryWrites=true&w=majority
   mongo:
     image: mongo:3.6
     restart: always

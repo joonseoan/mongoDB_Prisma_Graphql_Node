@@ -1,4 +1,3 @@
-endpoint: ${env:PRISMA_ENDPOINT}
+endpoint: http://192.168.99.100:4469
 datamodel: datamodel.prisma
-secret: ${env.PRISMA_SECRET}
 databaseType: document
