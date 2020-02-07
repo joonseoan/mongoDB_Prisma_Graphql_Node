@@ -1,5 +1,9 @@
 # source: http://192.168.99.100:4469
-# timestamp: Wed Feb 05 2020 21:17:50 GMT-0500 (Eastern Standard Time)
+# timestamp: Thu Feb 06 2020 21:36:12 GMT-0500 (Eastern Standard Time)
+
+type AggregateTrack {
+  count: Int!
+}
 
 type AggregateUser {
   count: Int!
@@ -10,6 +14,304 @@ type BatchPayload {
   count: Long!
 }
 
+type Coords {
+  latitude: Float!
+  longitude: Float!
+  altitude: Float!
+  accuracy: Float!
+  heading: Float!
+  speed: Float!
+}
+
+input CoordsCreateInput {
+  latitude: Float!
+  longitude: Float!
+  altitude: Float!
+  accuracy: Float!
+  heading: Float!
+  speed: Float!
+}
+
+input CoordsCreateOneInput {
+  create: CoordsCreateInput
+}
+
+input CoordsRestrictedWhereInput {
+  """Logical AND on all given filters."""
+  AND: [CoordsRestrictedWhereInput!]
+  latitude: Float
+
+  """All values that are not equal to given value."""
+  latitude_not: Float
+
+  """All values that are contained in given list."""
+  latitude_in: [Float!]
+
+  """All values that are not contained in given list."""
+  latitude_not_in: [Float!]
+
+  """All values less than the given value."""
+  latitude_lt: Float
+
+  """All values less than or equal the given value."""
+  latitude_lte: Float
+
+  """All values greater than the given value."""
+  latitude_gt: Float
+
+  """All values greater than or equal the given value."""
+  latitude_gte: Float
+  longitude: Float
+
+  """All values that are not equal to given value."""
+  longitude_not: Float
+
+  """All values that are contained in given list."""
+  longitude_in: [Float!]
+
+  """All values that are not contained in given list."""
+  longitude_not_in: [Float!]
+
+  """All values less than the given value."""
+  longitude_lt: Float
+
+  """All values less than or equal the given value."""
+  longitude_lte: Float
+
+  """All values greater than the given value."""
+  longitude_gt: Float
+
+  """All values greater than or equal the given value."""
+  longitude_gte: Float
+  altitude: Float
+
+  """All values that are not equal to given value."""
+  altitude_not: Float
+
+  """All values that are contained in given list."""
+  altitude_in: [Float!]
+
+  """All values that are not contained in given list."""
+  altitude_not_in: [Float!]
+
+  """All values less than the given value."""
+  altitude_lt: Float
+
+  """All values less than or equal the given value."""
+  altitude_lte: Float
+
+  """All values greater than the given value."""
+  altitude_gt: Float
+
+  """All values greater than or equal the given value."""
+  altitude_gte: Float
+  accuracy: Float
+
+  """All values that are not equal to given value."""
+  accuracy_not: Float
+
+  """All values that are contained in given list."""
+  accuracy_in: [Float!]
+
+  """All values that are not contained in given list."""
+  accuracy_not_in: [Float!]
+
+  """All values less than the given value."""
+  accuracy_lt: Float
+
+  """All values less than or equal the given value."""
+  accuracy_lte: Float
+
+  """All values greater than the given value."""
+  accuracy_gt: Float
+
+  """All values greater than or equal the given value."""
+  accuracy_gte: Float
+  heading: Float
+
+  """All values that are not equal to given value."""
+  heading_not: Float
+
+  """All values that are contained in given list."""
+  heading_in: [Float!]
+
+  """All values that are not contained in given list."""
+  heading_not_in: [Float!]
+
+  """All values less than the given value."""
+  heading_lt: Float
+
+  """All values less than or equal the given value."""
+  heading_lte: Float
+
+  """All values greater than the given value."""
+  heading_gt: Float
+
+  """All values greater than or equal the given value."""
+  heading_gte: Float
+  speed: Float
+
+  """All values that are not equal to given value."""
+  speed_not: Float
+
+  """All values that are contained in given list."""
+  speed_in: [Float!]
+
+  """All values that are not contained in given list."""
+  speed_not_in: [Float!]
+
+  """All values less than the given value."""
+  speed_lt: Float
+
+  """All values less than or equal the given value."""
+  speed_lte: Float
+
+  """All values greater than the given value."""
+  speed_gt: Float
+
+  """All values greater than or equal the given value."""
+  speed_gte: Float
+}
+
+input CoordsWhereInput {
+  """Logical AND on all given filters."""
+  AND: [CoordsWhereInput!]
+  latitude: Float
+
+  """All values that are not equal to given value."""
+  latitude_not: Float
+
+  """All values that are contained in given list."""
+  latitude_in: [Float!]
+
+  """All values that are not contained in given list."""
+  latitude_not_in: [Float!]
+
+  """All values less than the given value."""
+  latitude_lt: Float
+
+  """All values less than or equal the given value."""
+  latitude_lte: Float
+
+  """All values greater than the given value."""
+  latitude_gt: Float
+
+  """All values greater than or equal the given value."""
+  latitude_gte: Float
+  longitude: Float
+
+  """All values that are not equal to given value."""
+  longitude_not: Float
+
+  """All values that are contained in given list."""
+  longitude_in: [Float!]
+
+  """All values that are not contained in given list."""
+  longitude_not_in: [Float!]
+
+  """All values less than the given value."""
+  longitude_lt: Float
+
+  """All values less than or equal the given value."""
+  longitude_lte: Float
+
+  """All values greater than the given value."""
+  longitude_gt: Float
+
+  """All values greater than or equal the given value."""
+  longitude_gte: Float
+  altitude: Float
+
+  """All values that are not equal to given value."""
+  altitude_not: Float
+
+  """All values that are contained in given list."""
+  altitude_in: [Float!]
+
+  """All values that are not contained in given list."""
+  altitude_not_in: [Float!]
+
+  """All values less than the given value."""
+  altitude_lt: Float
+
+  """All values less than or equal the given value."""
+  altitude_lte: Float
+
+  """All values greater than the given value."""
+  altitude_gt: Float
+
+  """All values greater than or equal the given value."""
+  altitude_gte: Float
+  accuracy: Float
+
+  """All values that are not equal to given value."""
+  accuracy_not: Float
+
+  """All values that are contained in given list."""
+  accuracy_in: [Float!]
+
+  """All values that are not contained in given list."""
+  accuracy_not_in: [Float!]
+
+  """All values less than the given value."""
+  accuracy_lt: Float
+
+  """All values less than or equal the given value."""
+  accuracy_lte: Float
+
+  """All values greater than the given value."""
+  accuracy_gt: Float
+
+  """All values greater than or equal the given value."""
+  accuracy_gte: Float
+  heading: Float
+
+  """All values that are not equal to given value."""
+  heading_not: Float
+
+  """All values that are contained in given list."""
+  heading_in: [Float!]
+
+  """All values that are not contained in given list."""
+  heading_not_in: [Float!]
+
+  """All values less than the given value."""
+  heading_lt: Float
+
+  """All values less than or equal the given value."""
+  heading_lte: Float
+
+  """All values greater than the given value."""
+  heading_gt: Float
+
+  """All values greater than or equal the given value."""
+  heading_gte: Float
+  speed: Float
+
+  """All values that are not equal to given value."""
+  speed_not: Float
+
+  """All values that are contained in given list."""
+  speed_in: [Float!]
+
+  """All values that are not contained in given list."""
+  speed_not_in: [Float!]
+
+  """All values less than the given value."""
+  speed_lt: Float
+
+  """All values less than or equal the given value."""
+  speed_lte: Float
+
+  """All values greater than the given value."""
+  speed_gt: Float
+
+  """All values greater than or equal the given value."""
+  speed_gte: Float
+}
+
+scalar DateTime
+
 """
 The `Long` scalar type represents non-fractional signed whole numeric values.
 Long can represent values between -(2^63) and 2^63 - 1.
@@ -17,11 +319,17 @@ Long can represent values between -(2^63) and 2^63 - 1.
 scalar Long
 
 type Mutation {
+  createTrack(data: TrackCreateInput!): Track!
   createUser(data: UserCreateInput!): User!
+  updateTrack(data: TrackUpdateInput!, where: TrackWhereUniqueInput!): Track
   updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
+  deleteTrack(where: TrackWhereUniqueInput!): Track
   deleteUser(where: UserWhereUniqueInput!): User
+  upsertTrack(where: TrackWhereUniqueInput!, create: TrackCreateInput!, update: TrackUpdateInput!): Track!
   upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
+  updateManyTracks(data: TrackUpdateManyMutationInput!, where: TrackWhereInput): BatchPayload!
   updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
+  deleteManyTracks(where: TrackWhereInput): BatchPayload!
   deleteManyUsers(where: UserWhereInput): BatchPayload!
 }
 
@@ -52,9 +360,130 @@ type PageInfo {
   endCursor: String
 }
 
+type Point {
+  timestamp: DateTime!
+  coords: Coords!
+}
+
+input PointCreateInput {
+  timestamp: DateTime!
+  coords: CoordsCreateOneInput!
+}
+
+input PointCreateManyInput {
+  create: [PointCreateInput!]
+}
+
+input PointRestrictedWhereInput {
+  """Logical AND on all given filters."""
+  AND: [PointRestrictedWhereInput!]
+  timestamp: DateTime
+
+  """All values that are not equal to given value."""
+  timestamp_not: DateTime
+
+  """All values that are contained in given list."""
+  timestamp_in: [DateTime!]
+
+  """All values that are not contained in given list."""
+  timestamp_not_in: [DateTime!]
+
+  """All values less than the given value."""
+  timestamp_lt: DateTime
+
+  """All values less than or equal the given value."""
+  timestamp_lte: DateTime
+
+  """All values greater than the given value."""
+  timestamp_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  timestamp_gte: DateTime
+  coords: CoordsRestrictedWhereInput
+}
+
+input PointScalarWhereInput {
+  """Logical AND on all given filters."""
+  AND: [PointScalarWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [PointScalarWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [PointScalarWhereInput!]
+  timestamp: DateTime
+
+  """All values that are not equal to given value."""
+  timestamp_not: DateTime
+
+  """All values that are contained in given list."""
+  timestamp_in: [DateTime!]
+
+  """All values that are not contained in given list."""
+  timestamp_not_in: [DateTime!]
+
+  """All values less than the given value."""
+  timestamp_lt: DateTime
+
+  """All values less than or equal the given value."""
+  timestamp_lte: DateTime
+
+  """All values greater than the given value."""
+  timestamp_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  timestamp_gte: DateTime
+}
+
+input PointUpdateManyDataInput {
+  timestamp: DateTime
+}
+
+input PointUpdateManyInput {
+  create: [PointCreateInput!]
+  updateMany: [PointUpdateManyWithWhereNestedInput!]
+  deleteMany: [PointScalarWhereInput!]
+}
+
+input PointUpdateManyWithWhereNestedInput {
+  where: PointScalarWhereInput!
+  data: PointUpdateManyDataInput!
+}
+
+input PointWhereInput {
+  """Logical AND on all given filters."""
+  AND: [PointWhereInput!]
+  timestamp: DateTime
+
+  """All values that are not equal to given value."""
+  timestamp_not: DateTime
+
+  """All values that are contained in given list."""
+  timestamp_in: [DateTime!]
+
+  """All values that are not contained in given list."""
+  timestamp_not_in: [DateTime!]
+
+  """All values less than the given value."""
+  timestamp_lt: DateTime
+
+  """All values less than or equal the given value."""
+  timestamp_lte: DateTime
+
+  """All values greater than the given value."""
+  timestamp_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  timestamp_gte: DateTime
+  coords: CoordsWhereInput
+}
+
 type Query {
+  tracks(where: TrackWhereInput, orderBy: TrackOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Track]!
   users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
+  track(where: TrackWhereUniqueInput!): Track
   user(where: UserWhereUniqueInput!): User
+  tracksConnection(where: TrackWhereInput, orderBy: TrackOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): TrackConnection!
   usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
 
   """Fetches an object given its ID"""
@@ -65,7 +494,187 @@ type Query {
 }
 
 type Subscription {
+  track(where: TrackSubscriptionWhereInput): TrackSubscriptionPayload
   user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
+}
+
+type Track implements Node {
+  id: ID!
+  user: User!
+  name: String!
+  locations: [Point!]
+}
+
+"""A connection to a list of items."""
+type TrackConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [TrackEdge]!
+  aggregate: AggregateTrack!
+}
+
+input TrackCreateInput {
+  id: ID
+  name: String
+  user: UserCreateOneInput!
+  locations: PointCreateManyInput
+}
+
+"""An edge in a connection."""
+type TrackEdge {
+  """The item at the end of the edge."""
+  node: Track!
+
+  """A cursor for use in pagination."""
+  cursor: String!
+}
+
+enum TrackOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+}
+
+type TrackPreviousValues {
+  id: ID!
+  name: String!
+}
+
+type TrackSubscriptionPayload {
+  mutation: MutationType!
+  node: Track
+  updatedFields: [String!]
+  previousValues: TrackPreviousValues
+}
+
+input TrackSubscriptionWhereInput {
+  """Logical AND on all given filters."""
+  AND: [TrackSubscriptionWhereInput!]
+
+  """The subscription event gets dispatched when it's listed in mutation_in"""
+  mutation_in: [MutationType!]
+
+  """
+  The subscription event gets only dispatched when one of the updated fields names is included in this list
+  """
+  updatedFields_contains: String
+
+  """
+  The subscription event gets only dispatched when all of the field names included in this list have been updated
+  """
+  updatedFields_contains_every: [String!]
+
+  """
+  The subscription event gets only dispatched when some of the field names included in this list have been updated
+  """
+  updatedFields_contains_some: [String!]
+  node: TrackWhereInput
+}
+
+input TrackUpdateInput {
+  name: String
+  user: UserUpdateOneRequiredInput
+  locations: PointUpdateManyInput
+}
+
+input TrackUpdateManyMutationInput {
+  name: String
+}
+
+input TrackWhereInput {
+  """Logical AND on all given filters."""
+  AND: [TrackWhereInput!]
+  id: ID
+
+  """All values that are not equal to given value."""
+  id_not: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID!]
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID!]
+
+  """All values less than the given value."""
+  id_lt: ID
+
+  """All values less than or equal the given value."""
+  id_lte: ID
+
+  """All values greater than the given value."""
+  id_gt: ID
+
+  """All values greater than or equal the given value."""
+  id_gte: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values not ending with the given string."""
+  id_not_ends_with: ID
+  name: String
+
+  """All values that are not equal to given value."""
+  name_not: String
+
+  """All values that are contained in given list."""
+  name_in: [String!]
+
+  """All values that are not contained in given list."""
+  name_not_in: [String!]
+
+  """All values less than the given value."""
+  name_lt: String
+
+  """All values less than or equal the given value."""
+  name_lte: String
+
+  """All values greater than the given value."""
+  name_gt: String
+
+  """All values greater than or equal the given value."""
+  name_gte: String
+
+  """All values containing the given string."""
+  name_contains: String
+
+  """All values not containing the given string."""
+  name_not_contains: String
+
+  """All values starting with the given string."""
+  name_starts_with: String
+
+  """All values not starting with the given string."""
+  name_not_starts_with: String
+
+  """All values ending with the given string."""
+  name_ends_with: String
+
+  """All values not ending with the given string."""
+  name_not_ends_with: String
+  user: UserWhereInput
+  locations_some: PointWhereInput
+  locations_every: PointRestrictedWhereInput
+  locations_none: PointRestrictedWhereInput
+}
+
+input TrackWhereUniqueInput {
+  id: ID
 }
 
 type User implements Node {
@@ -73,7 +682,6 @@ type User implements Node {
   name: String!
   email: String!
   password: String!
-  confirm_password: String!
 }
 
 """A connection to a list of items."""
@@ -91,7 +699,11 @@ input UserCreateInput {
   name: String!
   email: String!
   password: String!
-  confirm_password: String!
+}
+
+input UserCreateOneInput {
+  create: UserCreateInput
+  connect: UserWhereUniqueInput
 }
 
 """An edge in a connection."""
@@ -112,8 +724,6 @@ enum UserOrderByInput {
   email_DESC
   password_ASC
   password_DESC
-  confirm_password_ASC
-  confirm_password_DESC
 }
 
 type UserPreviousValues {
@@ -121,7 +731,6 @@ type UserPreviousValues {
   name: String!
   email: String!
   password: String!
-  confirm_password: String!
 }
 
 type UserSubscriptionPayload {
@@ -155,18 +764,34 @@ input UserSubscriptionWhereInput {
   node: UserWhereInput
 }
 
+input UserUpdateDataInput {
+  name: String
+  email: String
+  password: String
+}
+
 input UserUpdateInput {
   name: String
   email: String
   password: String
-  confirm_password: String
 }
 
 input UserUpdateManyMutationInput {
   name: String
   email: String
   password: String
-  confirm_password: String
+}
+
+input UserUpdateOneRequiredInput {
+  create: UserCreateInput
+  connect: UserWhereUniqueInput
+  update: UserUpdateDataInput
+  upsert: UserUpsertNestedInput
+}
+
+input UserUpsertNestedInput {
+  update: UserUpdateDataInput!
+  create: UserCreateInput!
 }
 
 input UserWhereInput {
@@ -332,46 +957,6 @@ input UserWhereInput {
 
   """All values not ending with the given string."""
   password_not_ends_with: String
-  confirm_password: String
-
-  """All values that are not equal to given value."""
-  confirm_password_not: String
-
-  """All values that are contained in given list."""
-  confirm_password_in: [String!]
-
-  """All values that are not contained in given list."""
-  confirm_password_not_in: [String!]
-
-  """All values less than the given value."""
-  confirm_password_lt: String
-
-  """All values less than or equal the given value."""
-  confirm_password_lte: String
-
-  """All values greater than the given value."""
-  confirm_password_gt: String
-
-  """All values greater than or equal the given value."""
-  confirm_password_gte: String
-
-  """All values containing the given string."""
-  confirm_password_contains: String
-
-  """All values not containing the given string."""
-  confirm_password_not_contains: String
-
-  """All values starting with the given string."""
-  confirm_password_starts_with: String
-
-  """All values not starting with the given string."""
-  confirm_password_not_starts_with: String
-
-  """All values ending with the given string."""
-  confirm_password_ends_with: String
-
-  """All values not ending with the given string."""
-  confirm_password_not_ends_with: String
 }
 
 input UserWhereUniqueInput {

@@ -28,10 +28,13 @@ export const verifyJWT = async req => {
             throw new Error('Unable to find authenticated user.')
         }
 
-        req.user = user;
+        req.user = {
+            id: user.id,
+            name: user.name,
+            email: user.email
+         };
 
     } catch(e) {
         throw new Error(e);
-    }
-    
+    }    
 }
