@@ -16,7 +16,6 @@ export const encryption = password => {
 export const decryption = (password, encryptedPassword) =>{
     return bcrypt.compare(password, encryptedPassword)
         .then( isValidated => {
-            console.log('isValidated: ', isValidated)
             return isValidated;
         })
         .catch(err => {

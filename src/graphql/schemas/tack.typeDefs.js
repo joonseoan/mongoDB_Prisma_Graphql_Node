@@ -16,11 +16,11 @@ export default gql`
     }
 
     input createPointInput {
-        timestamp: Int!
-        coords: createCoords!
+        timestamp: String!
+        coords: createCoordsInput!
     }
 
-    input createCoords {
+    input createCoordsInput {
         latitude: Float!
         longitude: Float!
         altitude: Float!
@@ -31,13 +31,13 @@ export default gql`
 
     type Track {
         id: ID!
-        userId: ID!
+        user: User!
         name: String!
         locations: [Point!]!  
     }
 
     type Point {
-        timestamp: Int!
+        timestamp: String!
         coords: Coords!
     }
 

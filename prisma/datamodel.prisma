@@ -2,13 +2,12 @@ type User {
   id: ID! @id
   name: String!
   email: String! @unique
-  password: String!
-
+  password: String!   
 }
 
 type Track {
   id: ID! @id
-  user: User! @relation(link: INLINE) 
+  user: User!  @relation(link: INLINE)
   name: String! @default(value: "")
   locations: [Point!]! @relation(link: INLINE) 
 }

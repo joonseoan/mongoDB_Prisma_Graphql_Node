@@ -10,7 +10,7 @@ export default {
                         id: req.user.id
                     }
                 }
-            });
+            }, info);
 
             if(tracks.length === 0) {
                 throw new Error('Unable to fetch track');

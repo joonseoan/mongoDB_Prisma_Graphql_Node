@@ -27,6 +27,6 @@ export default gql`
         id: ID!
         email: String!
         name: String!
-        token: String!
+        token: String
     }
 `;
