@@ -12,7 +12,7 @@ export default gql`
     }
 
     input createUserInput {
-        name: String!
+        dob: String!
         email: String!
         password: String!
         confirm_password: String!
@@ -26,7 +26,7 @@ export default gql`
     type User {
         id: ID!
         email: String!
-        name: String!
+        dob: String !
         token: String
     }
 `;

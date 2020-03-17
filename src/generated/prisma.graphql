@@ -1,5 +1,5 @@
 # source: http://192.168.99.100:4469
-# timestamp: Fri Feb 07 2020 21:20:57 GMT-0500 (Eastern Standard Time)
+# timestamp: Mon Mar 16 2020 22:49:21 GMT-0400 (Eastern Daylight Time)
 
 type AggregateTrack {
   count: Int!
@@ -319,18 +319,18 @@ Long can represent values between -(2^63) and 2^63 - 1.
 scalar Long
 
 type Mutation {
-  createUser(data: UserCreateInput!): User!
   createTrack(data: TrackCreateInput!): Track!
-  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
+  createUser(data: UserCreateInput!): User!
   updateTrack(data: TrackUpdateInput!, where: TrackWhereUniqueInput!): Track
-  deleteUser(where: UserWhereUniqueInput!): User
+  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
   deleteTrack(where: TrackWhereUniqueInput!): Track
-  upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
+  deleteUser(where: UserWhereUniqueInput!): User
   upsertTrack(where: TrackWhereUniqueInput!, create: TrackCreateInput!, update: TrackUpdateInput!): Track!
-  updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
+  upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
   updateManyTracks(data: TrackUpdateManyMutationInput!, where: TrackWhereInput): BatchPayload!
-  deleteManyUsers(where: UserWhereInput): BatchPayload!
+  updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
   deleteManyTracks(where: TrackWhereInput): BatchPayload!
+  deleteManyUsers(where: UserWhereInput): BatchPayload!
 }
 
 enum MutationType {
@@ -479,12 +479,12 @@ input PointWhereInput {
 }
 
 type Query {
-  users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
   tracks(where: TrackWhereInput, orderBy: TrackOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Track]!
-  user(where: UserWhereUniqueInput!): User
+  users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
   track(where: TrackWhereUniqueInput!): Track
-  usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
+  user(where: UserWhereUniqueInput!): User
   tracksConnection(where: TrackWhereInput, orderBy: TrackOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): TrackConnection!
+  usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
 
   """Fetches an object given its ID"""
   node(
@@ -494,8 +494,8 @@ type Query {
 }
 
 type Subscription {
-  user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
   track(where: TrackSubscriptionWhereInput): TrackSubscriptionPayload
+  user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
 }
 
 type Track implements Node {
@@ -518,18 +518,7 @@ type TrackConnection {
 input TrackCreateInput {
   id: ID
   name: String
-  user: UserCreateOneWithoutTrackInput!
-  locations: PointCreateManyInput
-}
-
-input TrackCreateManyWithoutUserInput {
-  create: [TrackCreateWithoutUserInput!]
-  connect: [TrackWhereUniqueInput!]
-}
-
-input TrackCreateWithoutUserInput {
-  id: ID
-  name: String
+  user: UserCreateOneInput!
   locations: PointCreateManyInput
 }
 
@@ -552,97 +541,6 @@ enum TrackOrderByInput {
 type TrackPreviousValues {
   id: ID!
   name: String!
-}
-
-input TrackScalarWhereInput {
-  """Logical AND on all given filters."""
-  AND: [TrackScalarWhereInput!]
-
-  """Logical OR on all given filters."""
-  OR: [TrackScalarWhereInput!]
-
-  """Logical NOT on all given filters combined by AND."""
-  NOT: [TrackScalarWhereInput!]
-  id: ID
-
-  """All values that are not equal to given value."""
-  id_not: ID
-
-  """All values that are contained in given list."""
-  id_in: [ID!]
-
-  """All values that are not contained in given list."""
-  id_not_in: [ID!]
-
-  """All values less than the given value."""
-  id_lt: ID
-
-  """All values less than or equal the given value."""
-  id_lte: ID
-
-  """All values greater than the given value."""
-  id_gt: ID
-
-  """All values greater than or equal the given value."""
-  id_gte: ID
-
-  """All values containing the given string."""
-  id_contains: ID
-
-  """All values not containing the given string."""
-  id_not_contains: ID
-
-  """All values starting with the given string."""
-  id_starts_with: ID
-
-  """All values not starting with the given string."""
-  id_not_starts_with: ID
-
-  """All values ending with the given string."""
-  id_ends_with: ID
-
-  """All values not ending with the given string."""
-  id_not_ends_with: ID
-  name: String
-
-  """All values that are not equal to given value."""
-  name_not: String
-
-  """All values that are contained in given list."""
-  name_in: [String!]
-
-  """All values that are not contained in given list."""
-  name_not_in: [String!]
-
-  """All values less than the given value."""
-  name_lt: String
-
-  """All values less than or equal the given value."""
-  name_lte: String
-
-  """All values greater than the given value."""
-  name_gt: String
-
-  """All values greater than or equal the given value."""
-  name_gte: String
-
-  """All values containing the given string."""
-  name_contains: String
-
-  """All values not containing the given string."""
-  name_not_contains: String
-
-  """All values starting with the given string."""
-  name_starts_with: String
-
-  """All values not starting with the given string."""
-  name_not_starts_with: String
-
-  """All values ending with the given string."""
-  name_ends_with: String
-
-  """All values not ending with the given string."""
-  name_not_ends_with: String
 }
 
 type TrackSubscriptionPayload {
@@ -678,49 +576,12 @@ input TrackSubscriptionWhereInput {
 
 input TrackUpdateInput {
   name: String
-  user: UserUpdateOneRequiredWithoutTrackInput
+  user: UserUpdateOneRequiredInput
   locations: PointUpdateManyInput
-}
-
-input TrackUpdateManyDataInput {
-  name: String
 }
 
 input TrackUpdateManyMutationInput {
   name: String
-}
-
-input TrackUpdateManyWithoutUserInput {
-  create: [TrackCreateWithoutUserInput!]
-  connect: [TrackWhereUniqueInput!]
-  set: [TrackWhereUniqueInput!]
-  disconnect: [TrackWhereUniqueInput!]
-  delete: [TrackWhereUniqueInput!]
-  update: [TrackUpdateWithWhereUniqueWithoutUserInput!]
-  updateMany: [TrackUpdateManyWithWhereNestedInput!]
-  deleteMany: [TrackScalarWhereInput!]
-  upsert: [TrackUpsertWithWhereUniqueWithoutUserInput!]
-}
-
-input TrackUpdateManyWithWhereNestedInput {
-  where: TrackScalarWhereInput!
-  data: TrackUpdateManyDataInput!
-}
-
-input TrackUpdateWithoutUserDataInput {
-  name: String
-  locations: PointUpdateManyInput
-}
-
-input TrackUpdateWithWhereUniqueWithoutUserInput {
-  where: TrackWhereUniqueInput!
-  data: TrackUpdateWithoutUserDataInput!
-}
-
-input TrackUpsertWithWhereUniqueWithoutUserInput {
-  where: TrackWhereUniqueInput!
-  update: TrackUpdateWithoutUserDataInput!
-  create: TrackCreateWithoutUserInput!
 }
 
 input TrackWhereInput {
@@ -818,10 +679,9 @@ input TrackWhereUniqueInput {
 
 type User implements Node {
   id: ID!
-  name: String!
+  dob: DateTime!
   email: String!
   password: String!
-  track(where: TrackWhereInput, orderBy: TrackOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Track!]
 }
 
 """A connection to a list of items."""
@@ -836,22 +696,14 @@ type UserConnection {
 
 input UserCreateInput {
   id: ID
-  name: String!
+  dob: DateTime!
   email: String!
   password: String!
-  track: TrackCreateManyWithoutUserInput
 }
 
-input UserCreateOneWithoutTrackInput {
-  create: UserCreateWithoutTrackInput
+input UserCreateOneInput {
+  create: UserCreateInput
   connect: UserWhereUniqueInput
-}
-
-input UserCreateWithoutTrackInput {
-  id: ID
-  name: String!
-  email: String!
-  password: String!
 }
 
 """An edge in a connection."""
@@ -866,8 +718,8 @@ type UserEdge {
 enum UserOrderByInput {
   id_ASC
   id_DESC
-  name_ASC
-  name_DESC
+  dob_ASC
+  dob_DESC
   email_ASC
   email_DESC
   password_ASC
@@ -876,7 +728,7 @@ enum UserOrderByInput {
 
 type UserPreviousValues {
   id: ID!
-  name: String!
+  dob: DateTime!
   email: String!
   password: String!
 }
@@ -912,35 +764,34 @@ input UserSubscriptionWhereInput {
   node: UserWhereInput
 }
 
-input UserUpdateInput {
-  name: String
+input UserUpdateDataInput {
+  dob: DateTime
   email: String
   password: String
-  track: TrackUpdateManyWithoutUserInput
+}
+
+input UserUpdateInput {
+  dob: DateTime
+  email: String
+  password: String
 }
 
 input UserUpdateManyMutationInput {
-  name: String
+  dob: DateTime
   email: String
   password: String
 }
 
-input UserUpdateOneRequiredWithoutTrackInput {
-  create: UserCreateWithoutTrackInput
+input UserUpdateOneRequiredInput {
+  create: UserCreateInput
   connect: UserWhereUniqueInput
-  update: UserUpdateWithoutTrackDataInput
-  upsert: UserUpsertWithoutTrackInput
+  update: UserUpdateDataInput
+  upsert: UserUpsertNestedInput
 }
 
-input UserUpdateWithoutTrackDataInput {
-  name: String
-  email: String
-  password: String
-}
-
-input UserUpsertWithoutTrackInput {
-  update: UserUpdateWithoutTrackDataInput!
-  create: UserCreateWithoutTrackInput!
+input UserUpsertNestedInput {
+  update: UserUpdateDataInput!
+  create: UserCreateInput!
 }
 
 input UserWhereInput {
@@ -986,46 +837,28 @@ input UserWhereInput {
 
   """All values not ending with the given string."""
   id_not_ends_with: ID
-  name: String
+  dob: DateTime
 
   """All values that are not equal to given value."""
-  name_not: String
+  dob_not: DateTime
 
   """All values that are contained in given list."""
-  name_in: [String!]
+  dob_in: [DateTime!]
 
   """All values that are not contained in given list."""
-  name_not_in: [String!]
+  dob_not_in: [DateTime!]
 
   """All values less than the given value."""
-  name_lt: String
+  dob_lt: DateTime
 
   """All values less than or equal the given value."""
-  name_lte: String
+  dob_lte: DateTime
 
   """All values greater than the given value."""
-  name_gt: String
+  dob_gt: DateTime
 
   """All values greater than or equal the given value."""
-  name_gte: String
-
-  """All values containing the given string."""
-  name_contains: String
-
-  """All values not containing the given string."""
-  name_not_contains: String
-
-  """All values starting with the given string."""
-  name_starts_with: String
-
-  """All values not starting with the given string."""
-  name_not_starts_with: String
-
-  """All values ending with the given string."""
-  name_ends_with: String
-
-  """All values not ending with the given string."""
-  name_not_ends_with: String
+  dob_gte: DateTime
   email: String
 
   """All values that are not equal to given value."""
@@ -1106,7 +939,6 @@ input UserWhereInput {
 
   """All values not ending with the given string."""
   password_not_ends_with: String
-  track_some: TrackWhereInput
 }
 
 input UserWhereUniqueInput {

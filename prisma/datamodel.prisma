@@ -1,6 +1,6 @@
 type User {
   id: ID! @id
-  name: String!
+  dob: DateTime!
   email: String! @unique
   password: String!   
 }
@@ -25,4 +25,3 @@ type Coords @embedded {
   heading: Float!
   speed: Float!
 }
-

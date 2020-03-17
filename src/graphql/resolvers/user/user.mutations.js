@@ -5,10 +5,11 @@ export default {
     createUser: async (parent, { data }, { prisma }, info) => {
         
         try {
-            const { name, email, password } = data;
+            const { email, password, dob } = data;
+
             const hash = await encryption(password);
             const userFields = { 
-                name, 
+                dob: new Date(dob), 
                 email, 
                 password: hash 
             };
@@ -21,7 +22,7 @@ export default {
 
             return {
                 id: newUser.id,
-                name: newUser.name,
+                dob: new Date(newUser.dob).toISOString(),
                 email: newUser.email,
                 token // delete when it is not required
             };
@@ -29,6 +30,7 @@ export default {
             throw new Error(e);
         }
     },
+
     loginUser: async (parent, { data }, { prisma, req }, info) => {
 
         try {
@@ -58,7 +60,7 @@ export default {
 
             return {
                 id: user.id,   // delete when it is not required in client
-                name: user.name, // delete when it is not required in client
+                dob: user.dob, // delete when it is not required in client
                 email: user.email, // delete when it is not required in client
                 token 
             }
