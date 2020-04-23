@@ -24,4 +24,5 @@ type Coords @embedded {
   accuracy: Float!
   heading: Float!
   speed: Float!
+  altitudeAccuracy: Float
 }

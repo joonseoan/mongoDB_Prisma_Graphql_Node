@@ -1,5 +1,5 @@
 # source: http://192.168.99.100:4469
-# timestamp: Mon Mar 16 2020 22:49:21 GMT-0400 (Eastern Daylight Time)
+# timestamp: Wed Apr 22 2020 23:25:58 GMT-0400 (Eastern Daylight Time)
 
 type AggregateTrack {
   count: Int!
@@ -21,6 +21,7 @@ type Coords {
   accuracy: Float!
   heading: Float!
   speed: Float!
+  altitudeAccuracy: Float
 }
 
 input CoordsCreateInput {
@@ -30,6 +31,7 @@ input CoordsCreateInput {
   accuracy: Float!
   heading: Float!
   speed: Float!
+  altitudeAccuracy: Float
 }
 
 input CoordsCreateOneInput {
@@ -171,6 +173,28 @@ input CoordsRestrictedWhereInput {
 
   """All values greater than or equal the given value."""
   speed_gte: Float
+  altitudeAccuracy: Float
+
+  """All values that are not equal to given value."""
+  altitudeAccuracy_not: Float
+
+  """All values that are contained in given list."""
+  altitudeAccuracy_in: [Float!]
+
+  """All values that are not contained in given list."""
+  altitudeAccuracy_not_in: [Float!]
+
+  """All values less than the given value."""
+  altitudeAccuracy_lt: Float
+
+  """All values less than or equal the given value."""
+  altitudeAccuracy_lte: Float
+
+  """All values greater than the given value."""
+  altitudeAccuracy_gt: Float
+
+  """All values greater than or equal the given value."""
+  altitudeAccuracy_gte: Float
 }
 
 input CoordsWhereInput {
@@ -308,6 +332,28 @@ input CoordsWhereInput {
 
   """All values greater than or equal the given value."""
   speed_gte: Float
+  altitudeAccuracy: Float
+
+  """All values that are not equal to given value."""
+  altitudeAccuracy_not: Float
+
+  """All values that are contained in given list."""
+  altitudeAccuracy_in: [Float!]
+
+  """All values that are not contained in given list."""
+  altitudeAccuracy_not_in: [Float!]
+
+  """All values less than the given value."""
+  altitudeAccuracy_lt: Float
+
+  """All values less than or equal the given value."""
+  altitudeAccuracy_lte: Float
+
+  """All values greater than the given value."""
+  altitudeAccuracy_gt: Float
+
+  """All values greater than or equal the given value."""
+  altitudeAccuracy_gte: Float
 }
 
 scalar DateTime

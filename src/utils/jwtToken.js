@@ -5,7 +5,6 @@ export const generateJWT = userId => {
     return jwt.sign({ userId }, process.env.JWT_SCECRET, { expiresIn: 60 * 60 * 60 });
 }
 
-
 export const verifyJWT = async req => {
 
     const { authorization } = req.headers;

@@ -2,8 +2,7 @@ import { encryption, decryption } from '../../../utils/pwBcrypt';
 import { generateJWT } from '../../../utils/jwtToken';
 
 export default {
-    createUser: async (parent, { data }, { prisma }, info) => {
-        
+    createUser: async (parent, { data }, { prisma }, info) => {        
         try {
             const { email, password, dob } = data;
 
@@ -35,7 +34,6 @@ export default {
 
         try {
             const { email, password } = data;
-            
             if(!email || !password) {
                 throw new Error('Email or Password is not available.')
             }

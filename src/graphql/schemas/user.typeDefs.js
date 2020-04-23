@@ -15,7 +15,6 @@ export default gql`
         dob: String!
         email: String!
         password: String!
-        confirm_password: String!
     }
 
     input loginUserInput {

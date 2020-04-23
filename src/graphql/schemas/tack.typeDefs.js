@@ -12,7 +12,7 @@ export default gql`
 
     input createTrackInput {
         name: String!
-        locations: [createPointInput!]!
+        locations: [ createPointInput! ]!
     }
 
     input createPointInput {
@@ -27,13 +27,14 @@ export default gql`
         accuracy: Float!
         heading: Float!
         speed: Float!
+        altitudeAccuracy: Float
     }
 
     type Track {
         id: ID!
         user: User!
         name: String!
-        locations: [Point!]!  
+        locations: [ Point! ]!  
     }
 
     type Point {
@@ -48,5 +49,6 @@ export default gql`
         accuracy: Float!
         heading: Float!
         speed: Float!
+        altitudeAccuracy: Float
     }
 `;

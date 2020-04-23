@@ -4,9 +4,9 @@ export default {
     createTrack: async (parent, { data }, { prisma, req }, info) => {
         try {
             await verifyJWT(req);
-            const{ name, locations } = data;
+            const { name, locations } = data;
 
-            if(!name || !locations) {
+            if(!name || !locations.length) {
                 throw new Error('Must enter name and locations');
             }
 
@@ -14,14 +14,16 @@ export default {
                return { 
                    timestamp: location.timestamp,
                    coords: {
-                      create: {
-                          latitude: location.coords.latitude,
-                          longitude: location.coords.longitude,
-                          altitude: location.coords.altitude,
-                          accuracy: location.coords.accuracy,
-                          heading: location.coords.heading,
-                          speed: location.coords.speed
-                      }     
+                    create: location.coords
+                    //   create: {
+                    //     //   latitude: location.coords.latitude,
+                    //     //   longitude: location.coords.longitude,
+                    //     //   altitude: location.coords.altitude,
+                    //     //   accuracy: location.coords.accuracy,
+                    //     //   heading: location.coords.heading,
+                    //     //   speed: location.coords.speed,
+                    //     //   altitudeAccuracy: location.coords.altitudeAccuracy
+                    //   }     
                    }
                } 
             });
