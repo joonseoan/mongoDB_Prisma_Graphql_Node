@@ -15,15 +15,6 @@ export default {
                    timestamp: location.timestamp,
                    coords: {
                     create: location.coords
-                    //   create: {
-                    //     //   latitude: location.coords.latitude,
-                    //     //   longitude: location.coords.longitude,
-                    //     //   altitude: location.coords.altitude,
-                    //     //   accuracy: location.coords.accuracy,
-                    //     //   heading: location.coords.heading,
-                    //     //   speed: location.coords.speed,
-                    //     //   altitudeAccuracy: location.coords.altitudeAccuracy
-                    //   }     
                    }
                } 
             });
