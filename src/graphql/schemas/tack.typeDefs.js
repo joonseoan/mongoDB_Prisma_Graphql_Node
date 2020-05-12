@@ -7,7 +7,7 @@ export default gql`
     }
 
     extend type Mutation {
-        createTrack(data: createTrackInput): Track!
+        createTrack(data: createTrackInput!): Track!
     }
 
     input createTrackInput {

@@ -7,8 +7,8 @@ type User {
 
 type Track {
   id: ID! @id
+  name: String!
   user: User!  @relation(link: INLINE)
-  name: String! @default(value: "")
   locations: [Point!]! @relation(link: INLINE) 
 }
 

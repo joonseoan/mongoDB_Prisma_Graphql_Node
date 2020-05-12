@@ -2,6 +2,7 @@ import { verifyJWT } from '../../../utils/jwtToken';
 
 export default {
     createTrack: async (parent, { data }, { prisma, req }, info) => {
+        
         try {
             await verifyJWT(req);
             const { name, locations } = data;

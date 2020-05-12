@@ -1,5 +1,5 @@
 # source: http://192.168.99.100:4469
-# timestamp: Wed Apr 22 2020 23:25:58 GMT-0400 (Eastern Daylight Time)
+# timestamp: Mon May 11 2020 23:20:00 GMT-0400 (Eastern Daylight Time)
 
 type AggregateTrack {
   count: Int!
@@ -546,8 +546,8 @@ type Subscription {
 
 type Track implements Node {
   id: ID!
-  user: User!
   name: String!
+  user: User!
   locations: [Point!]
 }
 
@@ -563,7 +563,7 @@ type TrackConnection {
 
 input TrackCreateInput {
   id: ID
-  name: String
+  name: String!
   user: UserCreateOneInput!
   locations: PointCreateManyInput
 }
