@@ -55,7 +55,6 @@ export default {
             }
 
             const token = generateJWT(user.id);
-
             return {
                 id: user.id,   // delete when it is not required in client
                 dob: user.dob, // delete when it is not required in client
